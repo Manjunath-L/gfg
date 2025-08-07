@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Survey Form</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 20px;
+      }
+      h1 {
+        text-align: center;
+      }
+      form {
+        max-width: 600px;
+        margin: 0 auto;
+        background: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      fieldset {
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        margin-bottom: 20px;
+        padding: 15px;
+      }
+      legend {
+        font-weight: bold;
+        padding: 0 10px;
+      }
+      label {
+        margin-bottom: 5px;
+        display: inline-block;
+      }
+      input[type="text"],
+      input[type="number"],
+      input[type="email"],
+      textarea {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+      }
+      input[type="checkbox"],
+      input[type="radio"] {
+        margin-right: 10px;
+      }
+      button {
+        width: 100%;
+        padding: 10px;
+        background-color: #5cb85c;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+      button:hover {
+        background-color: #4cae4c;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Survey Form</h1>
+    <form action="#" method="post">
+      <fieldset>
+        <legend>Personal Information</legend>
+        <p>
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="user_name" />
+        </p>
+        <p>
+          <label for="age">Age:</label>
+          <input type="number" id="age" name="user_age" />
+        </p>
+        <p>
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="user_email" />
+        </p>
+      </fieldset>
+
+      <fieldset>
+        <legend>Your Preferences</legend>
+        <p>What topics are you interested in?</p>
+        <input type="checkbox" id="topic1" name="topics" value="html" />
+        <label for="topic1">HTML</label><br />
+        <input type="checkbox" id="topic2" name="topics" value="css" />
+        <label for="topic2">CSS</label><br />
+        <input type="checkbox" id="topic3" name="topics" value="javascript" />
+        <label for="topic3">JavaScript</label><br />
+      </fieldset>
+
+      <fieldset>
+        <legend>Your Feedback</legend>
+        <p>How would you rate this survey?</p>
+        <input type="radio" id="rating1" name="rating" value="excellent" />
+        <label for="rating1">Excellent</label><br />
+        <input type="radio" id="rating2" name="rating" value="good" />
+        <label for="rating2">Good</label><br />
+        <input type="radio" id="rating3" name="rating" value="average" />
+        <label for="rating3">Average</label><br />
+        <input type="radio" id="rating4" name="rating" value="poor" />
+        <label for="rating4">Poor</label><br />
+      </fieldset>
+
+      <fieldset>
+        <legend>Comments</legend>
+        <p>
+          <label for="comments">Any additional comments?</label><br />
+          <textarea id="comments" name="comments" rows="4" cols="50"></textarea>
+        </p>
+      </fieldset>
+
+      <button type="submit">Submit</button>
+    </form>
+  </body>
+</html>
