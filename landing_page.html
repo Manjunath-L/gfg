@@ -5,64 +5,194 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfolio of Manjunath L</title>
     <style>
+      /* Retro Elegant Theme */
+      :root {
+        --bg: #f7f1e6;
+        --panel: #fffaf2;
+        --ink: #2f241d;
+        --accent: #b66b35;
+        --accent-dark: #8a4e22;
+        --line: #c9b8a5;
+        --muted: #6d5b4f;
+        --focus: #e2c9a6;
+      }
+      * {
+        box-sizing: border-box;
+      }
       body {
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        line-height: 1.6;
+        font-family: "Georgia", serif;
+        line-height: 1.55;
         margin: 0;
-        padding: 0;
-        background: #f4f4f4;
-        color: #333;
+        background: var(--bg);
+        color: var(--ink);
+        -webkit-font-smoothing: antialiased;
+        background-image: radial-gradient(
+            circle at 12% 18%,
+            rgba(0, 0, 0, 0.05) 0 8%,
+            transparent 9%
+          ),
+          repeating-linear-gradient(
+            135deg,
+            rgba(0, 0, 0, 0.02) 0 12px,
+            transparent 12px 24px
+          );
       }
       header {
-        background: #2c3e50;
-        color: #fff;
-        padding: 1rem 0;
         text-align: center;
+        padding: 46px 20px 38px;
+        position: relative;
+      }
+      header:before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        background: linear-gradient(135deg, #fffaf2, #f0e2cf);
+        border-bottom: 2px solid var(--line);
+        box-shadow: 0 6px 18px -6px rgba(60, 40, 20, 0.25), 0 0 0 6px #ffffffc0;
+        clip-path: polygon(0 0, 100% 0, 100% 92%, 50% 100%, 0 92%);
       }
       header h1 {
-        margin: 0;
+        margin: 0 0 6px;
+        font-family: "Courier New", monospace;
+        letter-spacing: 2px;
+        font-weight: 600;
+        text-transform: uppercase;
+        color: var(--accent-dark);
       }
       header p {
-        margin: 5px 0 0;
+        margin: 0;
+        font-size: 0.9rem;
+        letter-spacing: 0.15em;
+        color: var(--muted);
       }
       h2 {
         text-align: center;
-        color: #555;
-        padding: 10px;
+        font-weight: 500;
+        letter-spacing: 0.05em;
+        color: var(--accent-dark);
+        margin: 8px 0 30px;
       }
-      table {
-        width: 90%;
-        margin: 0 auto 20px auto;
-        border-collapse: collapse;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        background: #fff;
+      .grid-wrap {
+        max-width: 1240px;
+        margin: 0 auto 48px;
+        padding: 0 30px;
       }
-      td {
-        border: 1px solid #ddd;
-        padding: 15px;
+      .panel-table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 26px 0;
+      }
+      .panel-table td {
+        background: var(--panel);
+        border: 1px solid var(--line);
+        padding: 26px 26px 20px;
+        border-radius: 14px;
         vertical-align: top;
+        position: relative;
+        box-shadow: 0 4px 14px -6px rgba(60, 40, 20, 0.35),
+          inset 0 0 0 1px rgba(255, 255, 255, 0.4);
+      }
+      .panel-table td:before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: 12px;
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.4),
+          transparent
+        );
+        pointer-events: none;
       }
       h3 {
-        color: #333;
-        border-bottom: 2px solid #3498db; /* Bright Blue */
-        padding-bottom: 5px;
-        margin-top: 0;
+        margin: 0 0 14px;
+        font-size: 1rem;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        font-family: "Courier New", monospace;
+        color: var(--accent-dark);
+        text-transform: uppercase;
+        padding-bottom: 6px;
+        border-bottom: 2px solid var(--accent);
+        display: inline-block;
       }
       ul {
-        padding-left: 20px;
+        margin: 0 0 12px 18px;
+        padding: 0;
+      }
+      li {
+        margin: 4px 0;
       }
       a {
-        color: #3498db; /* Bright Blue */
+        color: var(--accent);
         text-decoration: none;
+        border-bottom: 1px dashed var(--accent);
       }
       a:hover {
-        text-decoration: underline;
+        color: var(--accent-dark);
+      }
+      .peer-section {
+        max-width: 1240px;
+        margin: 0 auto 60px;
+        padding: 0 30px;
+      }
+      .peer-table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 26px 0;
+      }
+      .peer-table td {
+        background: var(--panel);
+        border: 1px solid var(--line);
+        padding: 20px 22px;
+        border-radius: 14px;
+        font-size: 0.9rem;
+        line-height: 1.5;
+        box-shadow: 0 4px 14px -6px rgba(60, 40, 20, 0.3),
+          inset 0 0 0 1px rgba(255, 255, 255, 0.4);
+        position: relative;
       }
       footer {
         text-align: center;
-        padding: 20px;
-        background: #2c3e50; /* Dark Blue */
-        color: #fff;
+        padding: 40px 20px 60px;
+        font-size: 0.75rem;
+        letter-spacing: 0.18em;
+        color: var(--muted);
+        position: relative;
+      }
+      footer:before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, #fffaf2, #efe3d2);
+        border-top: 2px solid var(--line);
+        box-shadow: 0 -6px 18px -8px rgba(60, 40, 20, 0.3), 0 0 0 6px #ffffffc0;
+        clip-path: polygon(0 8%, 50% 0, 100% 8%, 100% 100%, 0 100%);
+        z-index: -1;
+      }
+      @media (max-width: 980px) {
+        .panel-table,
+        .peer-table {
+          border-spacing: 0 26px;
+        }
+        .panel-table td,
+        .peer-table td {
+          display: block;
+          width: 100%;
+        }
+      }
+      @media (max-width: 640px) {
+        header {
+          padding: 38px 14px 34px;
+        }
+        .grid-wrap,
+        .peer-section {
+          padding: 0 18px;
+        }
+        .panel-table td {
+          padding: 22px 20px 18px;
+        }
       }
     </style>
   </head>
@@ -72,62 +202,66 @@
       <p>Home | Projects | Blogs | Contact</p>
     </header>
     <h2>Web Developer and Designer</h2>
-    <table>
-      <tr>
-        <td>
-          <h3>Portfolio Highlights</h3>
-          <ul>
-            <li>Responsive HTML Layout</li>
-            <li>E-commerce Storefront</li>
-          </ul>
-        </td>
-        <td>
-          <h3>Career Achievements</h3>
-          <p>
-            Frontend Developer [Intern] at XYZ<br />Headed major product
-            redesigns resulting in a 40% increase in user engagement.<br /><a
-              href="#"
-              >View My LinkedIn Profile</a
-            >
-          </p>
-          <h3>Community Involvement</h3>
-          <p>
-            Active participant in local and online developer forums. Regularly
-            contribute to web development blogs and GitHub projects.<br /><a
-              href="#"
-              >Visit My GitHub</a
-            >
-          </p>
-        </td>
-        <td>
-          <h3>Academic Qualifications</h3>
-          <p>BCA (Computer Science) from Kuvempu University</p>
-          <p>Specializations:</p>
-          <ul>
-            <li>React js</li>
-            <li>Advanced JavaScript Techniques</li>
-            <li>Web Accessibility Standards</li>
-          </ul>
-        </td>
-      </tr>
-    </table>
+    <div class="grid-wrap">
+      <table class="panel-table">
+        <tr>
+          <td>
+            <h3>Portfolio Highlights</h3>
+            <ul>
+              <li>Responsive HTML Layout</li>
+              <li>E-commerce Storefront</li>
+            </ul>
+          </td>
+          <td>
+            <h3>Career Achievements</h3>
+            <p>
+              Frontend Developer [Intern] at XYZ<br />Headed major product
+              redesigns resulting in a 40% increase in user engagement.<br /><a
+                href="#"
+                >View My LinkedIn Profile</a
+              >
+            </p>
+            <h3>Community Involvement</h3>
+            <p>
+              Active participant in local and online developer forums. Regularly
+              contribute to web development blogs and GitHub projects.<br /><a
+                href="#"
+                >Visit My GitHub</a
+              >
+            </p>
+          </td>
+          <td>
+            <h3>Academic Qualifications</h3>
+            <p>BCA (Computer Science) from Kuvempu University</p>
+            <p>Specializations:</p>
+            <ul>
+              <li>React js</li>
+              <li>Advanced JavaScript Techniques</li>
+              <li>Web Accessibility Standards</li>
+            </ul>
+          </td>
+        </tr>
+      </table>
+    </div>
     <h3>Peer Reviews</h3>
-    <table>
-      <tr>
-        <td>
-          Manjunath L consistently delivers high-quality, innovative solutions
-          that exceed project expectations. - Steven, Project Lead
-        </td>
-        <td>
-          Manjuanth L is known for his precise attention to detail and his
-          ability to mentor younger developers. - David, UI Designer
-        </td>
-        <td>
-          Manjuanth L approach to problem-solving has been instrumental in our
-          success. - Sarah, Frontend Developer
-        </td>
-      </tr>
-    </table>
+    <div class="peer-section">
+      <table class="peer-table">
+        <tr>
+          <td>
+            Manjunath L consistently delivers high-quality, innovative solutions
+            that exceed project expectations. - Steven, Project Lead
+          </td>
+          <td>
+            Manjuanth L is known for his precise attention to detail and his
+            ability to mentor younger developers. - David, UI Designer
+          </td>
+          <td>
+            Manjuanth L approach to problem-solving has been instrumental in our
+            success. - Sarah, Frontend Developer
+          </td>
+        </tr>
+      </table>
+    </div>
     <footer>© [2025] All rights reserved by Manjuanth L</footer>
   </body>
 </html>

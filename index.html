@@ -5,64 +5,168 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Survey Form</title>
     <style>
-      body {
-        font-family: Arial, sans-serif;
-        background-color: #f4f4f4;
-        margin: 0;
-        padding: 20px;
+      /* Retro Elegant Theme */
+      :root {
+        --bg: #f7f1e6;
+        --panel: #fffaf2;
+        --ink: #2f241d;
+        --accent: #b66b35;
+        --accent-dark: #8a4e22;
+        --line: #c9b8a5;
+        --muted: #6d5b4f;
+        --focus: #e2c9a6;
       }
-      h1 {
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Georgia", "Times New Roman", serif;
+        background: var(--bg);
+        color: var(--ink);
+        margin: 0;
+        padding: 32px 16px 48px;
+        background-image: repeating-linear-gradient(
+          135deg,
+          rgba(0, 0, 0, 0.015) 0 12px,
+          transparent 12px 24px
+        );
+      }
+      h1,
+      legend {
+        font-family: "Courier New", Courier, monospace;
+        letter-spacing: 1px;
+        font-weight: 600;
+        text-transform: uppercase;
+        color: var(--accent-dark);
         text-align: center;
+        margin: 0 0 1rem;
       }
       form {
-        max-width: 600px;
+        max-width: 760px;
         margin: 0 auto;
-        background: #fff;
-        padding: 20px;
-        border-radius: 8px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        background: var(--panel);
+        padding: 28px 32px 40px;
+        border: 2px solid var(--line);
+        border-radius: 12px;
+        position: relative;
+        box-shadow: 0 4px 18px -6px rgba(60, 40, 20, 0.25), 0 0 0 6px #ffffffc0;
+        isolation: isolate;
+      }
+      form:before,
+      form:after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: 10px;
+        pointer-events: none;
+      }
+      form:before {
+        border: 1px dashed var(--line);
+        transform: translate(4px, 4px);
+        opacity: 0.6;
       }
       fieldset {
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        margin-bottom: 20px;
-        padding: 15px;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        padding: 18px 20px 12px;
+        margin: 0 0 24px;
+        background: linear-gradient(#fffdf8, #fdf7ee);
+        position: relative;
+      }
+      fieldset:last-of-type {
+        margin-bottom: 32px;
       }
       legend {
-        font-weight: bold;
-        padding: 0 10px;
+        padding: 2px 14px 4px;
+        font-size: 0.85rem;
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        display: inline-block;
+        box-shadow: 0 2px 4px -2px rgba(0, 0, 0, 0.25);
+      }
+      p {
+        margin: 0 0 14px;
       }
       label {
-        margin-bottom: 5px;
-        display: inline-block;
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: var(--muted);
       }
       input[type="text"],
       input[type="number"],
       input[type="email"],
       textarea {
         width: 100%;
-        padding: 8px;
-        margin-bottom: 10px;
-        border-radius: 4px;
-        border: 1px solid #ccc;
-        box-sizing: border-box;
+        background: #fff;
+        border: 1px solid var(--line);
+        padding: 10px 12px;
+        border-radius: 6px;
+        font-family: inherit;
+        font-size: 0.95rem;
+        color: var(--ink);
+        line-height: 1.4;
+        transition: border-color 0.25s, background-color 0.25s, box-shadow 0.25s;
+        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.4),
+          0 2px 4px -2px rgba(0, 0, 0, 0.25);
+      }
+      textarea {
+        resize: vertical;
+        min-height: 110px;
+      }
+      input:focus,
+      textarea:focus {
+        outline: none;
+        border-color: var(--accent);
+        background: #fffdf8;
+        box-shadow: 0 0 0 3px var(--focus),
+          inset 0 0 0 1px rgba(255, 255, 255, 0.6);
       }
       input[type="checkbox"],
       input[type="radio"] {
-        margin-right: 10px;
+        accent-color: var(--accent);
+      }
+      input[type="checkbox"],
+      input[type="radio"] {
+        transform: translateY(1px);
+      }
+      .option-line {
+        margin: 0 0 6px;
+      }
+      .option-line label {
+        display: inline;
+        font-weight: 500;
       }
       button {
         width: 100%;
-        padding: 10px;
-        background-color: #5cb85c;
-        color: white;
-        border: none;
-        border-radius: 4px;
+        padding: 14px 18px;
+        background: linear-gradient(var(--accent), var(--accent-dark));
+        color: #fff;
+        border: 1px solid var(--accent-dark);
+        border-radius: 10px;
         cursor: pointer;
-        font-size: 16px;
+        font-size: 1rem;
+        font-family: "Courier New", Courier, monospace;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        box-shadow: 0 4px 10px -3px rgba(80, 40, 10, 0.4),
+          inset 0 0 0 1px rgba(255, 255, 255, 0.25);
+        transition: transform 0.15s, box-shadow 0.25s, filter 0.25s;
       }
       button:hover {
-        background-color: #4cae4c;
+        filter: brightness(1.05);
+      }
+      button:active {
+        transform: translateY(2px);
+        box-shadow: 0 2px 6px -2px rgba(80, 40, 10, 0.5);
+      }
+      @media (max-width: 640px) {
+        form {
+          padding: 22px 20px 34px;
+        }
+        fieldset {
+          padding: 16px 16px 10px;
+        }
       }
     </style>
   </head>
